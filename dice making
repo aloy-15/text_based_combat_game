@@ -1,0 +1,26 @@
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+ 
+/* I know this looks horrible but this is the way to do it. */
+const std::string DIE_TOP = R"""(
+You rolled
+┌───────┐
+│       │
+│  )""";
+const std::string DIE_BTM = R"""(   │
+│       │
+└───────┘
+)""";
+ 
+auto render_die(int n) -> std::string
+{
+  std::stringstream sstream;
+  sstream << DIE_TOP << std::setw(2) << n << DIE_BTM;
+  return sstream.str();
+}
+ 
+auto main() -> int
+{
+  std::cout << render_die(20);
+}

@@ -18,4 +18,5 @@ struct Game
 {
   Player *player;
   Player *opponent;
+  string current;
 };

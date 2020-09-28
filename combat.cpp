@@ -1,9 +1,11 @@
 #include <iostream>
 #include "structure.hpp"
-using std::cout , std::cin , std::srand , std::rand;
+using std::cout , std::cin , std::srand , std::rand,
+std::string;
 
 void sword_attack(Game *game);
 void shield_bash(Game *game);
+void heal(Game *game);
 
 int combatloop(Game *game){
 
@@ -15,16 +17,17 @@ int combatloop(Game *game){
   }
 
   cout<<"what action do you want to perform.\n1 sword\n2 shield\n3 heal\n";
+  game->current = "player";
   cin>> answer;
   if (answer == "sword"){
     //the sword attack
     sword_attack(game);
   }
   else if(answer == "shield"){
-
+    shield_bash(game);
   }
   else if(answer == "heal"){
-
+    heal(game);
   }
   cout<<"\nyou have "<<game->player->hp<<" hp\nand your opponent has "<<game->opponent->hp<<" hp\n\n";
   return false;
