@@ -36,6 +36,6 @@ void sword_attack(Game *game) {
       else {
       cout << "you missed your hit or your opponent dodged it.\n";
       }
-      break;
-    }
+    break;
+  }
 }

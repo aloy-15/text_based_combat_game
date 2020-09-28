@@ -11,6 +11,7 @@ struct Player
   int hp;
   int melee;
   int heal;
+  bool stunned;
 };
 
 struct Game
