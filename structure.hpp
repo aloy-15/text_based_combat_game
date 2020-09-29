@@ -7,11 +7,12 @@ const int HEALTH_POTION = 3;
 
 struct Player
 {
-
   int hp;
   int melee;
   int heal;
   bool stunned;
+
+  void regen();
 };
 
 struct Game
@@ -19,4 +20,5 @@ struct Game
   Player *player;
   Player *opponent;
   string current;
+  string against;
 };
