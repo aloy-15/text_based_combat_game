@@ -12,19 +12,18 @@ int combatloop(Game *game){
   int d20;
   string answer;
 
-  if ((game->player->hp == 0) && (game->opponent->hp == 0)){
+  if ((game->player->hp <= 0) && (game->opponent->hp <= 0)){
     return true;
   }
 
   cout<<"what action do you want to perform.\n1 sword\n2 shield\n3 heal\n";
-  game->current = "player";
   getline(cin, answer);
   if (answer == "sword attack"){
     //the sword attack
     sword_attack(game);
   }
   else if(answer == "shield bash"){
-    shield_bash(game);
+    game->player->shield();
   }
   else if(answer == "heal"){
     game->player->regen();

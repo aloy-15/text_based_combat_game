@@ -2,7 +2,7 @@
 #include "structure.hpp"
 using std::cout, std::cin;
 
-void shield_bash(Game *game){
+void Player::shield(){
   int d20;
   int dodge;
   
@@ -16,7 +16,7 @@ void shield_bash(Game *game){
     case 20:
       if (dodge == 20){
         cout<<"both you and your opponent rolled a natural 20\n";
-        game->player->hp -= DAMAGE_SHIELDBASH;
+        this->hp -= DAMAGE_SHIELDBASH;
         d20 = random()%20+1;
         if (d20 > 10){
           game->opponent->stunned = true;
@@ -24,14 +24,14 @@ void shield_bash(Game *game){
       }
       else if(dodge < 20){
         cout<<"you rolled a natural 20 and you deal critical damage\n";
-      game->player->hp -= (DAMAGE_SHIELDBASH + game->player->melee);
+      this->hp -= (DAMAGE_SHIELDBASH + this->melee);
       game->opponent->stunned = true;
       }
     break;
 
     case 1:
       cout<<"you rolled a natural one so you will take damage\n";
-      game->player->hp -= DAMAGE_SHIELDBASH;
+      this->hp -= DAMAGE_SHIELDBASH;
 
     break;
 
@@ -41,7 +41,7 @@ void shield_bash(Game *game){
         cout<<"the opponent rolled a natural 20 so he makes a perfect dodge\n";
       }
 
-      else if(d20 + game->player->melee > dodge){
+      else if(d20 + this->melee > dodge){
         game->opponent->hp -= DAMAGE_SHIELDBASH;
         d20 = random()%20 +1;
 

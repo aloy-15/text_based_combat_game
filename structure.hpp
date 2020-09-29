@@ -10,15 +10,15 @@ struct Player
   int hp;
   int melee;
   int heal;
-  bool stunned;
 
+  bool stunned;
   void regen();
+  void sword();
+  void shield();
 };
 
 struct Game
 {
   Player *player;
   Player *opponent;
-  string current;
-  string against;
 };
